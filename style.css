@@ -653,86 +653,81 @@ input[type="number"] { -moz-appearance: textfield; }
  /* --- CORREÇÃO DO LAYOUT MOBILE --- */
 
 @media (max-width: 600px) {
-  .form-grid {
-    grid-template-columns: 1fr 1fr;
-  }
-  .campo-nome  { grid-column: 1 / -1; }
+  /* ... mantenha suas regras de form-grid, campo-nome e campo-preco ... */
+  .form-grid { grid-template-columns: 1fr 1fr; }
+  .campo-nome { grid-column: 1 / -1; }
   .campo-preco { grid-column: 1 / -1; }
-
   .col-cabecalhos { display: none !important; }
 
-  .item-visualizacao { 
-    display: flex !important; 
-    align-items: center; 
-    justify-content: space-between;
-    padding: 10px 8px;
-    gap: 5px;
+  /* 1. Transforma o item em um GRID de duas linhas */
+  .item-visualizacao {
+    display: grid !important;
+    grid-template-areas: 
+      "num nome nome nome"
+      "vazio qtd subtotal acoes";
+    grid-template-columns: 30px 1fr auto auto;
+    gap: 8px 10px;
+    padding: 12px;
+    align-items: center;
   }
 
-  .item-info {
-    display: block !important;
-    flex: 1 !important;
-    min-width: 0;
-    margin: 0 5px;
-  }
-
-  .item-nome {
-    display: block !important;
-    font-weight: 600;
-    font-size: 0.9rem;
-    color: #333;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis; 
-  }
-
-  .item-numero {
-    min-width: 20px;
-    font-size: 0.8rem;
-    color: #888;
-  }
-
-  /* (- 1 +) */
-  .item-qtd-wrap { 
-    width: 75px !important; 
-    flex-shrink: 0; 
-  }
-  
-  .item-qtd-ctrl button {
-    width: 22px;
-    height: 22px;
-  }
-
-  /* Preço e Subtotal */
-  .item-subtotal { 
-    width: 60px !important; 
-    flex-shrink: 0; 
-    text-align: right;
-    font-size: 0.85rem;
-    line-height: 1.2;
-  }
-
-  .item-preco-unit {
-    display: block;
-    font-size: 0.7rem;
+  /* 2. Posiciona cada elemento no seu lugar do grid */
+  .item-numero { 
+    grid-area: num; 
+    font-size: 0.8rem; 
     color: #999;
   }
 
-  /* Editar/Excluir */
-  .item-acoes {
+  .item-info { 
+    grid-area: nome; 
+    min-width: 0; 
+  }
+
+  .item-nome {
+    font-size: 1.05rem; /* Nome maior e com destaque */
+    font-weight: 600;
+    color: #333;
+    white-space: normal; /* Permite que o nome quebre linha se for muito longo */
+    display: block !important;
+  }
+
+  .item-qtd-wrap { 
+    grid-area: qtd; 
+    width: 90px !important; 
+    justify-self: start;
+  }
+
+  .item-subtotal { 
+    grid-area: subtotal; 
+    text-align: right; 
+    min-width: 80px;
+  }
+
+  .item-acoes { 
+    grid-area: acoes; 
     display: flex;
-    gap: 2px;
-    flex-shrink: 0;
+    gap: 5px;
   }
 
-  .btn-sm {
-    padding: 4px;
-    font-size: 0.8rem;
+  /* Ajustes de fonte para os valores */
+  .item-subtotal {
+    font-weight: bold;
+    color: #2d6a4f;
+    font-size: 0.95rem;
+  }
+  
+  .item-preco-unit {
+    display: block;
+    font-size: 0.75rem;
+    color: #888;
+    font-weight: normal;
   }
 
+  /* Barra de total */
   .barra-total { padding: 16px 18px; }
-  .total-valor { font-size: 1.5rem; }
+  .total-valor { font-size: 1.6rem; }
 }
+
 
 @media (max-width: 420px) {
   .header { flex-direction: column; text-align: center; }
