@@ -216,7 +216,7 @@ function construirElementoItem(item, idx) {
 
       <div class="item-subtotal">
         R$ ${formatarPreco(subtotal)}
-        <span class="item-preco-unit">R$ ${formatarPreco(item.preco)}/un</span>
+        <span class="item-preco-unit">$ {item.qtd}x R$ ${formatarPreco(item.preco)}/un</span>
       </div>
 
       <div class="item-acoes">
