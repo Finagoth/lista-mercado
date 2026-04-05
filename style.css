@@ -653,69 +653,47 @@ input[type="number"] { -moz-appearance: textfield; }
  /* --- CORREÇÃO DO LAYOUT MOBILE --- */
 
 @media (max-width: 600px) {
-  /* Ajuste da grade do formulário superior */
   .form-grid {
     grid-template-columns: 1fr 1fr;
-    gap: 15px;
   }
   .campo-nome  { grid-column: 1 / -1; }
   .campo-preco { grid-column: 1 / -1; }
 
-  /* Esconde os cabeçalhos da tabela (Produto, Qtd, etc) */
   .col-cabecalhos { display: none !important; }
 
-  /* Configuração do item da lista */
+  /* Ajuste do container do item */
   .item-visualizacao { 
-    display: flex; 
+    display: flex !important; 
+    flex-direction: row !important; 
     align-items: center; 
+    justify-content: space-between;
     padding: 12px 10px; 
-    gap: 8px; 
+    gap: 10px;
     width: 100%;
   }
 
-  /* FORÇA O NOME A APARECER */
+  /* FORÇA O NOME A APARECER: 
+     Esta regra atinge o span ou div que vem logo após o número 
+  */
+  .item-visualizacao > span:nth-child(2), 
   .item-nome {
     display: block !important;
-    flex: 1;                 /* Faz o nome ocupar todo o espaço restante */
+    visibility: visible !important;
+    flex: 1 !important; 
+    text-align: left;
     font-weight: 600;
-    font-size: 0.95rem;
     color: #333;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;     /* Evita que o nome quebre em duas linhas */
+    min-width: 50px; /* Garante um espaço mínimo */
   }
 
-  /* Ajuste das larguras fixas para não espremer o nome */
-  .item-num { 
-    min-width: 25px; 
-    color: #888; 
-    font-size: 0.85rem; 
-  }
-
-  .item-qtd-wrap { 
-    width: 85px; 
-    flex-shrink: 0; /* Impede que o seletor de quantidade diminua */
-  }
-
-  .item-subtotal { 
-    width: 80px; 
-    text-align: right;
-    font-weight: bold;
-    color: #2d6a4f;
-    flex-shrink: 0;
-  }
-
-  /* Barra de total no rodapé */
-  .barra-total { 
-    padding: 16px 18px; 
-  }
+  /* Mantém os controles no lugar */
+  .item-qtd-wrap { width: 85px; flex-shrink: 0; }
+  .item-subtotal { width: 75px; flex-shrink: 0; text-align: right; }
   
-  .total-valor { 
-    font-size: 1.6rem; 
-  }
-
-  .item-edicao { padding: 12px 16px; }
+  .barra-total { padding: 16px 18px; }
+  .total-valor { font-size: 1.5rem; }
 }
+
 
 @media (max-width: 420px) {
   .header { 
