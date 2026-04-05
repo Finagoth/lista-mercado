@@ -652,81 +652,78 @@ input[type="number"] { -moz-appearance: textfield; }
 
  /* --- CORREÇÃO DO LAYOUT MOBILE --- */
 
-@media (max-width: 600px) {
-  /* ... mantenha suas regras de form-grid, campo-nome e campo-preco ... */
+  @media (max-width: 600px) {
+  /* Mantém as configurações do formulário de inserção */
   .form-grid { grid-template-columns: 1fr 1fr; }
-  .campo-nome { grid-column: 1 / -1; }
+  .campo-nome  { grid-column: 1 / -1; }
   .campo-preco { grid-column: 1 / -1; }
   .col-cabecalhos { display: none !important; }
 
-  /* 1. Transforma o item em um GRID de duas linhas */
-  .item-visualizacao {
-    display: grid !important;
-    grid-template-areas: 
-      "num nome nome nome"
-      "vazio qtd subtotal acoes";
-    grid-template-columns: 30px 1fr auto auto;
-    gap: 8px 10px;
-    padding: 12px;
-    align-items: center;
+  /* 1. Ajuste do Item: Agora focado apenas em Nome e Preço */
+  .item-visualizacao { 
+    display: flex !important; 
+    align-items: center; 
+    justify-content: space-between;
+    padding: 14px 12px;
+    gap: 12px;
   }
 
-  /* 2. Posiciona cada elemento no seu lugar do grid */
-  .item-numero { 
-    grid-area: num; 
-    font-size: 0.8rem; 
-    color: #999;
-  }
+  /* REMOVE O NÚMERO (ÍNDICE) DA LISTA */
+  .item-numero { display: none !important; }
 
-  .item-info { 
-    grid-area: nome; 
-    min-width: 0; 
+  /* REMOVE O SELETOR DE QUANTIDADE (- 1 +) */
+  .item-qtd-wrap { display: none !important; }
+
+  /* 2. O NOME AGORA TEM MUITO ESPAÇO */
+  .item-info {
+    flex: 1 !important;
+    min-width: 0;
   }
 
   .item-nome {
-    font-size: 1.05rem; /* Nome maior e com destaque */
+    display: block !important;
+    font-size: 1.05rem;
     font-weight: 600;
     color: #333;
-    white-space: normal; /* Permite que o nome quebre linha se for muito longo */
-    display: block !important;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
-  .item-qtd-wrap { 
-    grid-area: qtd; 
-    width: 90px !important; 
-    justify-self: start;
-  }
-
-  .item-subtotal { 
-    grid-area: subtotal; 
-    text-align: right; 
-    min-width: 80px;
-  }
-
-  .item-acoes { 
-    grid-area: acoes; 
-    display: flex;
-    gap: 5px;
-  }
-
-  /* Ajustes de fonte para os valores */
+  /* 3. Estilo do Subtotal e Preço Unitário */
   .item-subtotal {
-    font-weight: bold;
+    text-align: right;
+    min-width: 85px; /* Espaço para o valor em Reais */
+    flex-shrink: 0;
+    font-weight: 700;
     color: #2d6a4f;
-    font-size: 0.95rem;
+    font-size: 1rem;
+    line-height: 1.2;
   }
-  
+
+  /* Mostra a quantidade e o preço unitário logo abaixo do subtotal */
   .item-preco-unit {
     display: block;
     font-size: 0.75rem;
     color: #888;
-    font-weight: normal;
+    font-weight: 400;
   }
 
-  /* Barra de total */
+  /* 4. Botões de Ação (Editar e Excluir) */
+  .item-acoes {
+    display: flex;
+    gap: 6px;
+    flex-shrink: 0;
+  }
+
+  .btn-sm {
+    padding: 6px;
+    font-size: 0.9rem;
+  }
+
   .barra-total { padding: 16px 18px; }
-  .total-valor { font-size: 1.6rem; }
 }
+
 
 
 @media (max-width: 420px) {
