@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Lista de Compras</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+  <div class="bg-blobs">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+  </div>
+
+  <div class="container">
+
+    <header class="header">
+      <div class="header-icon">🛒</div>
+      <div class="header-texto">
+        <h1>Lista de <span>Compras</span></h1>
+        <p>Adicione produtos, quantidades e preços — tudo salvo automaticamente</p>
+      </div>
+    </header>
+
+    <section class="card form-card">
+      <h2 class="card-titulo">
+        <span class="card-titulo-icone">✚</span>
+        Adicionar produto
+      </h2>
+
+      <div class="form-grid">
+        <div class="campo campo-nome">
+          <label for="prod-nome">Produto</label>
+          <input type="text" id="prod-nome" placeholder="Ex: Leite" autocomplete="off"/>
+        </div>
+
+        <div class="campo campo-qtd">
+          <label for="prod-qtd">Qtd.</label>
+          <div class="qtd-controle">
+            <button class="qtd-btn" id="qtd-menos" aria-label="Diminuir">−</button>
+            <input type="number" id="prod-qtd" value="1" min="1" max="999"/>
+            <button class="qtd-btn" id="qtd-mais" aria-label="Aumentar">+</button>
+          </div>
+        </div>
+
+        <div class="campo campo-preco">
+          <label for="prod-preco">Preço unit. (R$)</label>
+          <input type="number" id="prod-preco" placeholder="0,00" min="0" step="0.01"/>
+        </div>
+      </div>
+
+      <div class="form-rodape">
+        <button class="btn btn-adicionar" id="btn-adicionar">
+          <span>＋</span> Adicionar à lista
+        </button>
+      </div>
+    </section>
+
+    <section class="card lista-card">
+      <div class="lista-cabecalho">
+        <h2 class="card-titulo">
+          <span class="card-titulo-icone">🧺</span>
+          Minha lista
+        </h2>
+        <span class="badge" id="contagem-itens">0 itens</span>
+      </div>
+
+      <div class="estado-vazio" id="estado-vazio">
+        <div class="icone-vazio">🥕</div>
+        <p>Sua lista está vazia.<br>Adicione um produto acima!</p>
+      </div>
+
+      <div class="col-cabecalhos" id="col-cabecalhos">
+        <span class="ch-num">#</span>
+        <span class="ch-nome">Produto</span>
+        <span class="ch-qtd">Qtd.</span>
+        <span class="ch-subtotal">Subtotal</span>
+        <span class="ch-acoes"></span>
+      </div>
+
+      <ul class="lista-itens" id="lista-itens"></ul>
+    </section>
+
+    <div class="barra-total" id="barra-total">
+      <div class="total-info">
+        <span class="total-rotulo">Total estimado</span>
+        <span class="total-resumo" id="total-resumo"></span>
+      </div>
+      <div class="total-direita">
+        <span class="total-valor" id="total-valor">R$ 0,00</span>
+        <button class="btn btn-limpar" id="btn-limpar">🗑 Limpar</button>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="toast" id="toast" role="alert" aria-live="polite"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
