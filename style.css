@@ -661,22 +661,18 @@ input[type="number"] { -moz-appearance: textfield; }
 
   .col-cabecalhos { display: none !important; }
 
-  /* 1. Ajuste do container principal */
   .item-visualizacao { 
     display: flex !important; 
     align-items: center; 
     justify-content: space-between;
     padding: 10px 8px;
-    gap: 5px; /* Reduzi o gap para sobrar mais espaço para o texto */
+    gap: 5px;
   }
 
-  /* 2. CORREÇÃO DO NOME: 
-     O seu JS usa .item-info como pai do .item-nome. 
-     Precisamos dar flex: 1 para o PAI (item-info) */
   .item-info {
     display: block !important;
     flex: 1 !important;
-    min-width: 0; /* MUITO IMPORTANTE: permite que o flex-item encolha e mostre o texto */
+    min-width: 0;
     margin: 0 5px;
   }
 
@@ -687,17 +683,16 @@ input[type="number"] { -moz-appearance: textfield; }
     color: #333;
     white-space: nowrap;
     overflow: hidden;
-    text-overflow: ellipsis; /* Coloca "..." se o nome for grande */
+    text-overflow: ellipsis; 
   }
 
-  /* 3. Ajuste das larguras para não ocupar a tela toda */
   .item-numero {
     min-width: 20px;
     font-size: 0.8rem;
     color: #888;
   }
 
-  /* Seletor de quantidade (- 1 +) */
+  /* (- 1 +) */
   .item-qtd-wrap { 
     width: 75px !important; 
     flex-shrink: 0; 
@@ -710,7 +705,7 @@ input[type="number"] { -moz-appearance: textfield; }
 
   /* Preço e Subtotal */
   .item-subtotal { 
-    width: 70px !important; 
+    width: 60px !important; 
     flex-shrink: 0; 
     text-align: right;
     font-size: 0.85rem;
@@ -723,7 +718,7 @@ input[type="number"] { -moz-appearance: textfield; }
     color: #999;
   }
 
-  /* Botões de Ação (Editar/Excluir) */
+  /* Editar/Excluir */
   .item-acoes {
     display: flex;
     gap: 2px;
