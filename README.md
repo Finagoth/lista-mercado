@@ -86,4 +86,4 @@ Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para ma
 
 ---
 
-Feito com 🧡 por [seu nome](https://github.com/seu-usuario)
+Feito com 🧡 por [seu nome](https://github.com/Finagoth)
