@@ -55,11 +55,9 @@ Não requer instalação, build ou servidor. Basta:
 
 1. Clonar o repositório
 ```bash
-<<<<<<< HEAD
 git clone https://github.com/Finagoth/lista-compras.git
 =======
 git clone https://github.com/seu-usuario/lista-compras.git
->>>>>>> 17ab84e7e3423b0e9717bc4bfd0132f0c0bb05e5
 ```
 
 2. Abrir o arquivo `index.html` no navegador
@@ -72,7 +70,6 @@ Pronto. A aplicação já está funcionando.
 
 O projeto é totalmente responsivo e funciona em dispositivos móveis e desktop. O design utiliza uma paleta de cores quente com tipografia **Playfair Display** e **DM Sans**.
 
-<<<<<<< HEAD
 ### Tela inicial — lista vazia
 
 ![Tela inicial](./assets/listaVazia.jpg)
@@ -81,8 +78,6 @@ O projeto é totalmente responsivo e funciona em dispositivos móveis e desktop.
 
 ![Lista com itens](./assets/listaItens.jpg)
 
-=======
->>>>>>> 17ab84e7e3423b0e9717bc4bfd0132f0c0bb05e5
 ---
 
 ## 🧠 Decisões técnicas
