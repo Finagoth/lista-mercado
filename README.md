@@ -96,4 +96,4 @@ Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para ma
 
 ---
 
-Feito com 🧡 por Lucas Calíope(https://github.com/Finagoth)
+Feito com 🧡 por Lucas Calíope (https://github.com/Finagoth)
